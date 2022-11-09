@@ -7,8 +7,25 @@ You need an Azure subscription to run these sample programs.
 2. Azure Managed Identity for Cosmos DB 
 
 ### Create Kubernetes service account [here](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity)
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity
+Create a Kubernetes service account and annotate it with the client ID of the application Managed Identity
 ```sh
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
+  labels:
+    azure.workload.identity/use: "true"
+  name: ${SERVICE_ACCOUNT_NAME}
+  namespace: ${SERVICE_ACCOUNT_NAMESPACE}
+EOF
+## output
+## Serviceaccount/workload-identity-sa created
+```
+Create the federated identity credential between the managed identity, the service account issuer, and the subject.
+```sh
+az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
 ### Build the Image
 Creating Docker Images from .NET Core Applications is straight forward. Microsoft provides all the required Base-Images to make your application run in a Linux-based container. We are going to create a so-called multi-stage Docker Image.
@@ -51,13 +68,13 @@ spec:
 ### Deploy the Application
 ```bash
 kubectl apply -f pod.yml
-## result
-pod/cosmos-aks-app created
+## output
+## pod/cosmos-aks-app created
 ```
 You can check your Pod using
 ```sh
 kubectl get pods
-## result
-NAME             READY   STATUS    RESTARTS   AGE
-cosmos-aks-app   1/1     Running   0          7s
-```# CosmosDB-WorkloadIdentity-SampleApp 
+## output
+##NAME             READY   STATUS    RESTARTS   AGE
+##cosmos-aks-app   1/1     Running   0          7s
+```
