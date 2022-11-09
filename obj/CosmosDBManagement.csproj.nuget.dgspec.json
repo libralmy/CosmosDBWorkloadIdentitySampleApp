@@ -1,0 +1,110 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\CSECode\\Functions\\TerraformPractice\\azure-sample\\azure-cosmosdb\\simpleTest\\cosmos\\azure-cosmos-sp\\Azure-Cosmos-Management-api-Dotnet-CreateDB&Container\\CosmosDBManagement.csproj": {}
+  },
+  "projects": {
+    "C:\\CSECode\\Functions\\TerraformPractice\\azure-sample\\azure-cosmosdb\\simpleTest\\cosmos\\azure-cosmos-sp\\Azure-Cosmos-Management-api-Dotnet-CreateDB&Container\\CosmosDBManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\CSECode\\Functions\\TerraformPractice\\azure-sample\\azure-cosmosdb\\simpleTest\\cosmos\\azure-cosmos-sp\\Azure-Cosmos-Management-api-Dotnet-CreateDB&Container\\CosmosDBManagement.csproj",
+        "projectName": "CosmosDBManagement",
+        "projectPath": "C:\\CSECode\\Functions\\TerraformPractice\\azure-sample\\azure-cosmosdb\\simpleTest\\cosmos\\azure-cosmos-sp\\Azure-Cosmos-Management-api-Dotnet-CreateDB&Container\\CosmosDBManagement.csproj",
+        "packagesPath": "C:\\Users\\emilyli\\.nuget\\packages\\",
+        "outputPath": "C:\\CSECode\\Functions\\TerraformPractice\\azure-sample\\azure-cosmosdb\\simpleTest\\cosmos\\azure-cosmos-sp\\Azure-Cosmos-Management-api-Dotnet-CreateDB&Container\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\emilyli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
+            "Azure.ResourceManager.CosmosDB": {
+              "target": "Package",
+              "version": "[1.0.0-preview.1, )"
+            },
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.29.0, )"
+            },
+            "Microsoft.Azure.Management.CosmosDB": {
+              "target": "Package",
+              "version": "[3.8.0-preview, )"
+            },
+            "Microsoft.Azure.Management.CosmosDB.Fluent": {
+              "target": "Package",
+              "version": "[1.38.1, )"
+            },
+            "Microsoft.IdentityModel.Clients.ActiveDirectory": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "Microsoft.Rest.ClientRuntime.Azure.TestFramework": {
+              "target": "Package",
+              "version": "[1.7.7, )"
+            },
+            "Microsoft.WindowsAzure.Management.Storage": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
