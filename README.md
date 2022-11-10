@@ -2,9 +2,11 @@
 
 # Prerequisites
 
-You need an Azure subscription to run these sample programs.
 1. Azure Cosmos DB account
 2. Azure Managed Identity for Cosmos DB 
+3. AKS cluster
+4. Azure Container Registry
+5. Docker
 
 ### Create Kubernetes service account [here](https://learn.microsoft.com/en-us/azure/aks/learn/tutorial-kubernetes-workload-identity)
 Create a Kubernetes service account and annotate it with the client ID of the application Managed Identity
