@@ -16,7 +16,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   annotations:
-    azure.workload.identity/client-id: ${USER_ASSIGNED_CLIENT_ID}
+    azure.workload.identity/client-id: ${COSMOSDB_MANAGED_IDENTITY_CLIENT_ID}
   labels:
     azure.workload.identity/use: "true"
   name: ${SERVICE_ACCOUNT_NAME}
@@ -27,7 +27,12 @@ EOF
 ```
 Create the federated identity credential between the managed identity, the service account issuer, and the subject.
 ```sh
-az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
+## Command to query AKS_OIDC_ISSUER
+export AKS_OIDC_ISSUER="$(az aks show -n ${AKS_CLUSTER_NAME} -g ${RESOURCE_GROUP} --query "oidcIssuerProfile.issuerUrl" -otsv)"
+```
+
+```sh
+az identity federated-credential create --name ${FICID} --identity-name ${COSMOSDB_MANAGED_IDENTITY_NAME} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
 ### Build the Image
 Creating Docker Images from .NET Core Applications is straight forward. Microsoft provides all the required Base-Images to make your application run in a Linux-based container. We are going to create a so-called multi-stage Docker Image.
